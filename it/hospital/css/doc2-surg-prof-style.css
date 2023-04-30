@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #0d1b2a;
+    --secondary: #415a77;
+    --hover: #778da9;
+    --black: #1b263b;
+    --white: #fff;
+    --light-color: #666;
+    --light-bg: #eee;
+    --border: .2rem solid rgba(0, 0, 0, .1);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+body {
+    background-color: white;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 65%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+
+.logo {
+    font-size: 2em;
+    color: var(--black);
+    cursor: default;
+}
+
+.logo span {
+    color:   #1f2e88;
+}
+
+.navigation {
+    margin-left: -300px;
+} 
+
+.navigation a {
+    font-size: 1.1em;
+    color: var(--black);
+    text-decoration: none;
+    margin-right: 40px;
+    font-weight: 500;
+    transition: .6s;
+}
+.navigation a:hover {
+    color: #1f2e88;
+}
+
+.home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: url('ahmed.jpg');
+    background-size: 38% ;
+    border-left: 40px; 
+    background-repeat: no-repeat;
+    background-position: calc(75%);
+    display: flex;
+    align-items: center;
+    padding: 30px 100px;
+}
+
+.content {
+    max-width: 500px;
+    color: var(--secondary);
+}
+
+.content h2 {
+    font-size: 3em;
+}
+
+.content h2{
+    color: var(--black);
+}
+
+.content h4 {
+    font-size: 2em;
+    color: var(--black);
+}
+
+.content p {
+    padding: 10px 0 40px 0;
+}
+
+.social-icon {
+    position: absolute;
+    bottom: 50px;
+}
+
+.social-icon a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background: #1f2e88;
+    border-radius: 50%;
+    margin-right: 22px;
+    text-align: center;
+    line-height: 35px;
+    border: 1px solid var(--white);
+    outline: 2px solid #1f2e88;
+    transition: .3s;
+}
+
+.social-icon a:hover {
+    transform: translateY(-5px);
+}
+
+.social-icon a i {
+    color: white;
+}

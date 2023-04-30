@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+:root {
+    --primary: #1f2e88;
+    --secondary: #2f66d4;
+    --hover: #a2d9f5;
+    --black: #333;
+    --white: #fff;
+    --light-color: #666;
+    --light-bg: #eee;
+    --border: .2rem solid rgba(0, 0, 0, .1);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: .8rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5rem;
+}
+
+section {
+    padding: 5rem 7%;
+}
+
+.heading {
+    font-size: 4rem;
+    text-align: center;
+    color: var(--black);
+    text-transform: uppercase;
+    font-weight: bolder;
+    margin-bottom: 3rem;
+    position: fixed;
+    width: 100%;
+}
+
+
+.btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: .5rem;
+    background: var(--primary);
+    cursor: pointer;
+    font-size: 1.7rem;
+    color: var(--white);
+}
+
+section .btn {
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: .5rem;
+    background: var(--primary);
+    cursor: pointer;
+    font-size: 1.7rem;
+    color: var(--white);
+}
+
+.btn:hover {
+    background: var(--secondary);
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--white);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    align-items: centre;
+    justify-content: space-between;
+    padding: 2rem 9%;
+}
+
+.header .logo {
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: var(--black);
+}
+
+.header .logo i {
+    color: var(--primary);
+    padding-right: .5rem;
+}
+
+.header .navbar a {
+    font-size: 1.7rem;
+    color: var(--black);
+    margin: 0 1rem;
+}
+
+.header .navbar a:hover {
+    color: var(--primary);
+}
+
+.header.btn {
+    margin-top: 0;
+}
+
+#menu-btn {
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--black);
+    margin-left: 1.7rem;
+    display: none;
+}
+
+
+#menu-btn:hover {
+    color: var(--primary);
+}
