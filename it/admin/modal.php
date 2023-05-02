@@ -1,3 +1,12 @@
+<?php 
+require 'connect.php';
+$sql="SELECT * FROM Clinics;";
+$result=mysqli_query($connect,$sql);
+$clinics=mysqli_fetch_all($result,MYSQLI_ASSOC);
+mysqli_free_result($result);
+mysqli_close($connect);
+
+?>
 <div class="modal fade" id="usermodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -21,10 +30,9 @@
             <label for="main">Specialization</label>
             <select class="form-control my-1" name="selection">
             
-                <option>General</option>
-                <option >Cardio</option>
-                <option>Neuro</option>
-                <option >Dental</option>
+            <?php foreach($clinics as $clinic){ ?>
+  <option value="<?php echo $clinic['Cname']; ?>"><?php echo $clinic['Cname']; ?></option>
+  <?php } ?>
             </select>
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>

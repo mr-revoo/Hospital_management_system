@@ -5,7 +5,7 @@
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Specialization</th>
-      <th scope="col">operations</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -18,19 +18,15 @@
       $id=$row['id'];
       $Name=$row['Name'];
       $Email=$row['Email'];
-      $Specialization=$row['Specialization'];
+      $Specialization=$row['clinic'];
       $Pass=$row['Password'];
       echo "<tr>";
       echo "<td>$id</td>";
       echo "<td>$Name</td>";
       echo "<td>$Email</td>";
       echo "<td>$Specialization</td>";
-      echo "<td>
-      <a href='#'class='mr-3 profile' data-target='#userviewmodal' data-toggle='modal' title='View Profile'><i class='fa-solid fa-eye' style='color: #06891c;'></i></a>
-      <a href='profile.php?updateid=".$id."'class='mr-3 edituser'data-target='#usereditmodal' title='edit Profile'><i class='fa-solid fa-pen'></i></a>
-      <a href='delete.php?deleteid=".$id."' class='mr-3 deluser'data-target='#userdelmodal'title='delete Profile'><i class='fa-solid fa-trash' style='color: #8b1818;'></i></a>";}
-  
-  ?>
+       
+    }?>
     
     
       

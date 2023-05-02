@@ -1,3 +1,13 @@
+<?php 
+require 'Connection.php';
+$sql="SELECT * FROM Clinics;";
+$result=mysqli_query($connect,$sql);
+$clinics=mysqli_fetch_all($result,MYSQLI_ASSOC);
+mysqli_free_result($result);
+mysqli_close($connect);
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,45 +37,45 @@
   </header>
 <section class="contact" id="contact" >
   <h1 class="heading"> Make appointment</h1>
-  <form action="" method="post">
+  <form action="appointment1.php" method="post">
  <span>  Name :</span>
 <div class="inputbox">
-  <input type="text" placeholder="First Name " required> 
-<input type="text" placeholder="Last Name" required> 
+  <input type="text" placeholder="First Name " name="fname" required> 
+
 </div>
 <span>  Email :</span>
 <br>
-<input type="email" placeholder="Enter Your Email"class="box"required>
+<input type="email" placeholder="Enter Your Email"name="email" class="box"required>
 <br>
 <span> Phone Number : </span>
 <br>
-<input type="text" placeholder="Enter Your Phone Number" class="box" required>
+<input type="text" placeholder="Enter Your Phone Number" name="pnum" class="box" required>
 <br>
 
 <span> Appointment Date :</span>
-<input type="datetime-local" class="box" required>
+<input type="datetime-local" name="date" class="box" required>
 <br>
 <span> Clinic : </span>
 <br> <br>
 <div class="select">
-<select name="Clinic" id="med" >
+<select name="clinic" id="med" >
    <option selected disabled > Choose Clinic : </option>
-  <option value="clinic1">General</option>
+   <?php foreach($clinics as $clinic){ ?>
+  <option value="<?php echo $clinic['Cname']; ?>"><?php echo $clinic['Cname']; ?></option>
+  <?php } ?>
+  <!-- <option value="clinic1">General</option>
   <option value="clinic2">Dental</option>
   <option value="clinic3">Radiology</option>
   <option value="clinic4">pediatric</option>
-  <option value="clinic5">Emergency</option>
+  <option value="clinic5">Emergency</option> -->
 
  
 
 </select>
-<select name="Doctors" id="med2"style="margin-left: 52px;">
-  <option selected disabled > Choose doctor : </option>
 
-</select>
 </div>
 <br>
-<input type="submit" value="Make appointment" class="btn">
+<input type="submit" name="submit" value="Make appointment" class="btn">
 
 </section>
 <section class="footer">

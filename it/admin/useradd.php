@@ -14,7 +14,7 @@ function createuser($connect,$Name,$Email,$Specialization,$Pass){
     mysqli_stmt_execute($stmt);
     $resultdat=mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
-    header('location:index.php?error=none');
+    header('location:patient-profile.php?error=none');
          exit();
     
     

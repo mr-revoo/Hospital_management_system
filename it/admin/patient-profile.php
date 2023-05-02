@@ -1,24 +1,3 @@
-<?php
-require '../Connection.php';
-require '../functions.php';
-session_start();
-$userid=$_SESSION['user_id'];
-if(!isset($_SESSION['user_id'])){
-	header('location: ../index.php');
-	exit();
-}
-$sql="SELECT * FROM patient WHERE id='$userid'";
-if($result=mysqli_query($connect,$sql)){
-$fetch=mysqli_fetch_assoc($result);
-							}
-
- $sql2="SELECT * FROM appointments WHERE pid='$userid'AND isverified=0 order by appdate desc limit 1";
-  $result2=mysqli_query($connect,$sql2);
-  $fetch2=mysqli_fetch_all($result2,MYSQLI_ASSOC);
-  mysqli_free_result($result);
-    ?>
-  
-
 
 
 
@@ -31,7 +10,7 @@ $fetch=mysqli_fetch_assoc($result);
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css2/style.css">
+	<link rel="stylesheet" type="text/css" href="../hospital/css2/style.css">
 </head>
 <body>
 	<section class="py-5 my-5">
@@ -43,10 +22,7 @@ $fetch=mysqli_fetch_assoc($result);
 						<div class="img-circle text-center mb-3">
 							<img src="img/img1.jpg" alt="Image" class="shadow">
 						</div>
-						<h4 class="text-center"><?php echo $fetch['Name'] ?>
-            
-          
-          </h4>
+						<h4 class="text-center">Name</h4>
 					</div>
 					
 					<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
@@ -78,63 +54,50 @@ $fetch=mysqli_fetch_assoc($result);
 								?>
 							<div class="col-md-6">
 								<div class="form-group">
-								  	<label>First Name</label>
-								  	<input type="text" class="form-control" value="<?php echo $fetch['Name'] ?>" disabled>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Age</label>
-								  	<input type="text" class="form-control" value="<?php echo $fetch['Age']?>" disabled>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Email</label>
-								  	<input type="text" class="form-control" value="<?php echo $fetch['Email'] ?>" disabled>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Phone number</label>
-								  	<input type="text" class="form-control" value="+91 9876543215" disabled>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>BloofType</label>
-								  	<select name="bt" class="form-control" disabled >
-                      <option value="A+">A+</option>  
-                      <option value="A-">A-</option>
-                      <option value="B+">B+</option>
-                      <option value="B-">B-</option>
-                      <option value="O+">O+</option>
-                      <option value="O-">O-</option>  
-                      <option value="AB+">AB+</option>
-                      <option value="AB-">AB-</option>
+								  
+<h1 class="bg-info text-light text-center py-2">Testing</h1>
+<div class="container">
+
+<!-- Modal -->
+<?php 
+include 'modal.php';
 
 
-                    </select>
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-								  	<label>Designation</label>
-								  	<input type="text" class="form-control" value="UI Developer" disabled>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-								  	<label>Bio</label>
-									<textarea class="form-control" rows="4" disabled>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore vero enim error similique quia numquam ullam corporis officia odio repellendus aperiam consequatur laudantium porro voluptatibus, itaque laboriosam veritatis voluptatum distinctio!</textarea>
-								</div>
-							</div>
-						</div>
-						<div>
-							<button class="btn btn-primary">Update</button>
-							<button class="btn btn-light">Cancel</button>
-						</div>
-					</div>
+
+
+ ?>
+ 
+
+
+<div class="row" id="bot">
+    <div class="col-10">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class ="input-group-text bg-primary">
+                    <input class="form-control my-9 mx-auto" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0 bg-dark" type="submit">Search</button>
+
+                </span>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary" data-toggle="modal" data-target="#usermodal">
+        Add user
+
+    </button>
+    <a href='viewpa.php'class='mr-3 profile'title='View Profile'><i class='fa-solid fa-eye' style='color: #06891c;'></i></a>
+    
+
+    </button>
+</div>
+<?php
+include 'table.php';
+
+
+?>
+							
+								
+							
 
 					<div class="tab-pane fade " id="accountedit" role="tabpanel" aria-labelledby="accedit-tab">
 						<h3 class="mb-4">Account editdata</h3>
@@ -143,19 +106,19 @@ $fetch=mysqli_fetch_assoc($result);
 								<form action="" method="post">
 									<div class="form-group">
 										<label>First Name</label>
-										<input type="text" class="form-control" value="<?php echo $fetch['Name']?>" name="name">
+										<input type="text" class="form-control" value="Name" name="name">
 								  </div>
 							  </div>
 							  <div class="col-md-6">
 								  <div class="form-group">
 										<label>Age</label>
-										<input type="text" class="form-control" value="<?php echo $fetch['Age']?>">
+										<input type="text" class="form-control" value="Name">
 								  </div>
 							  </div>
 							  <div class="col-md-6">
 								  <div class="form-group">
 										<label>Email</label>
-										<input type="text" class="form-control" value="<?php echo $fetch['Email']?>"name="Email">
+										<input type="text" class="form-control" value="Name2"name="Email">
 								  </div>
 							  </div>
 							  <div class="col-md-6">
@@ -211,31 +174,14 @@ $fetch=mysqli_fetch_assoc($result);
                 <div class="card-body">
                   <h5 class="card-title">Vertification</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Patient</h6>
-                      <p class="card-text">
-                        <?php 
-                        foreach($fetch2 as $row)
-                        {
-                          echo "Patient Name". $fetch['Name'];
-                          echo $row['clinic'];
-                          echo $row['appdate'];
-                          echo $row['doctor'];
-                        
-                    ?>
-                      </p>
-                      <form action="func.php" method="post">
-                      <input type="submit" name="confirm">Confirm</a>
-                        <input type="submit" name="cancel">Cancel</a>
-                        <input type="hidden" id="appoid" name="appid" value="<?php echo $row['appid'];?>">
-                      </form>
-                      <?php
-                        }?>
-                        
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="card-link">Confirm</a>
+                        <a href="#" class="card-link">Cancel</a>
                       </div>
               </div>
 								
 							</div>
 						</div>
-
 						
 					</div>
 					<div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
@@ -246,30 +192,29 @@ $fetch=mysqli_fetch_assoc($result);
               <thead>
                  <tr>
                   <th scope="col">id</th>
-                  <th scope="col">Clinic</th>
-                  <th scope="col">appdate</th>
-                  <th scope="col">Doctor</th>
+                  <th scope="col">First</th>
+                  <th scope="col">Last</th>
+                  <th scope="col">Handle</th>
                   </tr>
                   </thead>
                   <tbody>
-                    <?php
-                    include_once 'Connection.php';
-                    $sql = "SELECT * FROM appointments";
-                    $result = mysqli_query($connect,$sql);
-                    if(mysqli_num_rows($result)>0)
-                    {
-                      while($row = mysqli_fetch_assoc($result))
-                      {
-                        echo "<tr><td>".$row["appid"]."</td><td>".$row["clinic"]."</td><td>".$row["appdate"]."</td><td>".$row["doctor"]."</td></tr>";
-                      }
-                      echo "</table>";
-                    }
-                    else
-                    {
-                      echo "0 result";
-                    }
-                    ?>
-                    
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>Jacob</td>
+                      <td>Thornton</td>
+                      <td>@fat</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td colspan="2">Larry the Bird</td>
+                      <td>@twitter</td>
+                    </tr>
                   </tbody>
                 </table>
                     </div>

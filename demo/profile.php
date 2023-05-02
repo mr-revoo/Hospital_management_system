@@ -7,7 +7,7 @@ $row=mysqli_fetch_assoc($result);
 $id=$row['id'];
 $Name=$row['Name'];
 $Email=$row['Email'];
-$Specialization=$row['Specialization'];
+$Specialization=$row['Clinic'];
 $Pass=$row['Pass'];
 
 if(isset($_POST['submit'])){
@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
   $Specialization=$_POST['selection'];
   $Pass=$_POST['pass'];
 
-  $sql="UPDATE doctors SET Name='$Name',Email='$Email',Specialization='$Specialization',Password='$Pass' WHERE id=$id";
+  $sql="UPDATE doctors SET Name='$Name',Email='$Email',Clinic='$Specialization',Password='$Pass' WHERE id=$id";
 
   $result=mysqli_query($connect,$sql);
 
